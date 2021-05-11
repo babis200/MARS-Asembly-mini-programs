@@ -1,0 +1,38 @@
+.data
+
+str: .asciiz "Insert INT\n"
+positive: .asciiz "Positive\n"
+nopositive: .asciiz "Non Positive\n"
+value: .word 0
+
+.text
+.globl main
+main:
+
+li $v0, 4  #print string
+la $a0, str
+syscall
+
+la $t0, value
+li $v0, 5	#read integer
+syscall
+sw $v0, 0($t0)
+lw $t1, 0($t0)
+
+slti $t2, $t1, 0
+bne $t2, $zero, pos
+
+li $v0, 4  #print answer
+la $a0, positive
+syscall
+
+j exit
+pos:
+
+li $v0, 4  #print answer
+la $a0, nopositive
+syscall
+
+exit:
+li $v0, 10	#end program
+syscall

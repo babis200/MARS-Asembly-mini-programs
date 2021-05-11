@@ -1,0 +1,28 @@
+.data
+
+str: .asciiz "Integer: "
+str1: .asciiz "Yes\n"
+str2: .asciiz "No\n"
+.text
+.globl main
+main:
+
+la $a0, str
+li $v0, 4							
+syscall
+
+li $v0, 5							#read int
+syscall	
+
+la $a0, str1				 	#exo san default na einai No
+sll $t0, $v0, 30			#koitao to 3o bit 
+beqz $t0, Yes 				#ama einai iso me to 0 tote einai pollaplasio toy 4
+
+
+la $a0, str2
+Yes:
+li $v0, 4				
+syscall
+
+li $v0, 10	#end program
+syscall

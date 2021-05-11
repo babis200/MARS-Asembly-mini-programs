@@ -1,0 +1,36 @@
+.data
+str: .asciiz "Insert INT\n"
+zero: .asciiz "Zero\n"
+nozero: .asciiz "Non Zero\n"
+value: .word 0
+
+.text
+.globl main
+main:
+
+li $v0, 4  #print string
+la $a0, str
+syscall
+
+la $t0, value
+li $v0, 5	#read integer
+syscall
+sw $v0, 0($t0)
+lw $t1, 0($t0)
+
+bne $t1, $zero, else
+
+li $v0, 4  #print answer
+la $a0, zero
+syscall
+
+j exit
+else:
+
+li $v0, 4  #print answer
+la $a0, nozero
+syscall
+
+exit:
+li $v0, 10	#end program
+syscall

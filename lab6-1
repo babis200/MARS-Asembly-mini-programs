@@ -1,0 +1,27 @@
+.data
+str: .asciiz "Integer: "
+str1: .asciiz "Perittos\n"
+str2: .asciiz "Artios\n"
+.text
+.globl main
+main:
+
+la $a0, str
+li $v0, 4							#print message
+syscall
+
+li $v0, 5							#read int
+syscall	
+
+la $a0, str2				 	#exo san default na einai artios"
+andi $t0, $v0, 1			#1 = 0000 0000 0000 0000 0000 0000 0000 0001 
+beqz $t0, Odd 				#koitao to LSB ama einai 1 tote o arithmos einai perittos (Odd)
+
+
+la $a0, str1
+Odd:
+li $v0, 4							#print naswer
+syscall
+
+li $v0, 10	#end program
+syscall

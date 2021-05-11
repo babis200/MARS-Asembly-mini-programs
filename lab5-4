@@ -1,0 +1,31 @@
+.data
+
+first:	.space 4
+second:	.space 4
+third:	.space 4
+fourth:	.space 4
+
+.text
+
+li $t0, 0xabcd
+
+la $s0, first
+la $s1, second
+la $s2, third
+la $s3, fourth
+
+#li $t1, 4 # i = 4
+
+#beqz $t1, exit
+
+	sw $t0, 0($s0)
+	sw $t0, 0($s1)
+	sw $t0, 0($s2)
+	sw $t0, 0($s3)
+#subi $t1, $t1, 1		# i -= 1
+
+
+
+exit:
+li $v0, 10	#end program
+syscall
