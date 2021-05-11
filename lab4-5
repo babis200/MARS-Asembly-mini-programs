@@ -6,13 +6,13 @@
 main:
 
 li $t0, 0       	 # i = 0  
-  li $t1, 5     	 # telos prwths epanalhpshs ($t1 fores)  
+  li $t1, 5     	 # end of first loop ($t1 times)  
 start_loop_1:  
   beq $t0, $t1, end_loop_1  
 
 ######################## Inner loop  
 	li $t2, 0        # j = 0  
-	li $t3, 4      	# telos deuterhs epanalhpshs ($t3 fores) 
+	li $t3, 4      	# end of second loop ($t3 times) 
 	start_loop_2:  
   	beq $t2, $t3, end_loop_2
   

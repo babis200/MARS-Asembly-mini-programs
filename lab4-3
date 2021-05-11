@@ -7,7 +7,7 @@ main:
 
 li $t0, 0		# i=0
 
-addi $t2, $zero, 5	# $t2= 5 (?????? ???????????)
+addi $t2, $zero, 5	# $t2= 5 (number of reps)
 again: 
 
 li $a0,'*'
@@ -15,7 +15,7 @@ li $v0, 11		#print *
 syscall
 
 addi $t0, $t0, 1 	# i=i+1
-bne $t2, $t0, again 	# ???i<5
+bne $t2, $t0, again 	# if i<5
 
 exit:
 li $v0, 10		#end program

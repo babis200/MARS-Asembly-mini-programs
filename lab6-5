@@ -14,17 +14,17 @@ syscall
 li $v0, 5							#read int
 syscall	
 
-andi $t0, $v0, 15		# prwta 4 pshfia (15=1111)
+andi $t0, $v0, 15		# first 4 digits (15=1111)
 
 srl $t1, $v0, 4
-andi $t1, $t1, 15		# epomena 4 pshfia	(15=1111)
+andi $t1, $t1, 15		# next 4 digits	(15=1111)
 
 
-lb $a0, table($t1)	#typwno to hex gia ta 4 teleutaia
+lb $a0, table($t1)	#print hex for 4 last digits
 li $v0, 11
 syscall
 
-lb $a0, table($t0)	#typwno to hex gia ta 4 prwta
+lb $a0, table($t0)	#print hex for 4 first digits
 li $v0, 11
 syscall
 

@@ -17,7 +17,7 @@ lw $t1, 0($t0)
 
 li $t3, 0							# i=0
 
-add $t2, $zero, $t1 	# $t2=  (plhthos epanalhpseon)
+add $t2, $zero, $t1 	# $t2=  (number of reps)
 again: 
 
 li $a0,'*'

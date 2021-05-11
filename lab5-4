@@ -1,16 +1,16 @@
 .data
 
-first:	.space 4
-second:	.space 4
-third:	.space 4
-fourth:	.space 4
+first:	.space 4	#allocate space for later
+second:	.space 4	#allocate space for later
+third:	.space 4	#allocate space for later
+fourth:	.space 4	#allocate space for later
 
 .text
 
-li $t0, 0xabcd
+li $t0, 0xabcd		
 
-la $s0, first
-la $s1, second
+la $s0, first		
+la $s1, second		 
 la $s2, third
 la $s3, fourth
 

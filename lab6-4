@@ -6,10 +6,10 @@ str: .asciiz "Integer(0-15): "
 .globl main
 main:
 
-#fortonw mia maska @$t0 = 1000
-# kano and me tin mask gia na vro to prwto pshfio
-# sll 1 tin maska 
-#h maska ginetai 0100
+#load a mask @$t0 = 1000
+# sll with mask for isolation of first digit
+# sll 1 mask 
+#mask goes 0100
 #repeat 
 
 la $a0, str
@@ -24,25 +24,25 @@ andi $t1, $v0, 2			# 2 = 0010
 andi $t2, $v0, 4			# 4 = 0100
 andi $t3, $v0, 8			# 8 = 1000
 
-slt $t0, $zero, $t0		#1o pshfio
-slt $t1, $zero, $t1		#2o pshfio
-slt $t2, $zero, $t2		#3o pshfio
-slt $t3, $zero, $t3		#4o pshfio
+slt $t0, $zero, $t0		#1o digit
+slt $t1, $zero, $t1		#2o digit
+slt $t2, $zero, $t2		#3o digit
+slt $t3, $zero, $t3		#4o digit
   
 add $a0, $t3, $zero
-li $v0, 1							#print 4o pshfio
+li $v0, 1							#print 4th digit
 syscall
 
 add $a0, $t2, $zero
-li $v0, 1							#print 3o pshfio
+li $v0, 1							#print 3rd digit
 syscall
 
 add $a0, $t1, $zero
-li $v0, 1							#print 2o pshfio
+li $v0, 1							#print 2nd digit
 syscall
 
 add $a0, $t0, $zero
-li $v0, 1							#print 1o pshfio
+li $v0, 1							#print 1st digit
 syscall	
 
 li $v0, 10	#end program
